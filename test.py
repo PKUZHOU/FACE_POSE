@@ -3,7 +3,7 @@ from network import PoseNet
 import cv2
 import os
 from torch.autograd.variable import Variable
-from src.detector import detect_faces
+from mtcnn_pytorch.src.detector import detect_faces
 from PIL import Image
 
 def detect(path):
@@ -34,7 +34,7 @@ def test():
     net.train(False)
     net.cuda()
     net.load_state_dict(torch.load('./models/model_29.pkl'))
-    root = "./mtcnn-pytorch/images"
+    root = "./mtcnn_pytorch/images"
     imgs = os.listdir(root)
     for img in imgs:
         path = os.path.join(root,img)
